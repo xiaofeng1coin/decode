@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Deobfuscator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>JS Deobfuscator</h1>
+    
+    <div class="controls">
+      <label for="decrypt-type">Decryption Type:</label>
+      <select id="decrypt-type">
+        <option value="obfuscator" selected>Obfuscator.io</option>
+        <option value="sojsonv7">SoJson v7</option>
+        <option value="sojson">SoJson (Legacy)</option>
+        <option value="jsconfuser">JSConfuser</option>
+        <option value="common">Common (Partial)</option>
+        <option value="jjencode">JJEncode</option>
+        <option value="awsc">AWSC (TB)</option>
+      </select>
+      <button id="decrypt-btn">Decrypt</button>
+      <span id="status"></span>
+    </div>
+    
+    <div class="editor-grid">
+      <div class="editor-pane">
+        <h2>Input (Encrypted Code)</h2>
+        <textarea id="input-code" placeholder="Paste your encrypted JavaScript code here..."></textarea>
+      </div>
+      <div class="editor-pane">
+        <h2>Output (Decrypted Code)</h2>
+        <textarea id="output-code" readonly placeholder="Decrypted code will appear here..."></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
