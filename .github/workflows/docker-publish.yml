@@ -5,7 +5,7 @@ name: Build and Push Docker Image to Docker Hub
 # 触发器：当代码被推送到 main 分支时运行
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build_and_push:
