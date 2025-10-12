@@ -1,38 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS Deobfuscator</title>
+  <title>JS 代码反混淆工具</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>JS Deobfuscator</h1>
+    <header class="main-header">
+      <h1>JS 代码反混淆工具</h1>
+      <p>一个用于解密和分析混淆 JavaScript 代码的在线工具</p>
+    </header>
     
     <div class="controls">
-      <label for="decrypt-type">Decryption Type:</label>
-      <select id="decrypt-type">
-        <option value="obfuscator" selected>Obfuscator.io</option>
-        <option value="sojsonv7">SoJson v7</option>
-        <option value="sojson">SoJson (Legacy)</option>
-        <option value="jsconfuser">JSConfuser</option>
-        <option value="common">Common (Partial)</option>
-        <option value="jjencode">JJEncode</option>
-        <option value="awsc">AWSC (TB)</option>
-      </select>
-      <button id="decrypt-btn">Decrypt</button>
-      <span id="status"></span>
+      <div class="control-group">
+        <label for="decrypt-type">解密类型:</label>
+        <select id="decrypt-type">
+          <option value="obfuscator" selected>obfuscator加密</option>
+          <option value="sojsonv7">sojsonv7加密</option>
+          <option value="sojson">sojson加密</option>
+          <option value="jsconfuser">jsconfuser加密</option>
+          <option value="common">通用解密 (部分)</option>
+          <option value="jjencode">jjencode</option>
+          <option value="awsc">AWSC (淘宝)</option>
+        </select>
+      </div>
+      <button id="decrypt-btn">
+        <span class="btn-text">开始解密</span>
+        <span class="loader"></span>
+      </button>
+      <span id="status">准备就绪...</span>
     </div>
     
     <div class="editor-grid">
       <div class="editor-pane">
-        <h2>Input (Encrypted Code)</h2>
-        <textarea id="input-code" placeholder="Paste your encrypted JavaScript code here..."></textarea>
+        <div class="pane-header">
+          <h2>输入 (混淆代码)</h2>
+          <button class="action-btn" id="clear-input-btn">清空</button>
+        </div>
+        <textarea id="input-code" placeholder="在此处粘贴混淆的 JavaScript 代码..."></textarea>
       </div>
       <div class="editor-pane">
-        <h2>Output (Decrypted Code)</h2>
-        <textarea id="output-code" readonly placeholder="Decrypted code will appear here..."></textarea>
+        <div class="pane-header">
+          <h2>输出 (解密代码)</h2>
+          <button class="action-btn" id="copy-output-btn">复制</button>
+        </div>
+        <textarea id="output-code" readonly placeholder="解密后的代码将显示在这里..."></textarea>
       </div>
     </div>
   </div>
